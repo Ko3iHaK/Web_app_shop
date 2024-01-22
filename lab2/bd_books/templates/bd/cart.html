@@ -1,0 +1,22 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Корзина</h1>
+        <ul class="books-list">
+            {% for el in cart %}
+                    <li class="alert-warning">
+                        <div class="book_header">
+                            <h3 class="book_title">{{ el.book }}</h3>
+                            <h3 class="book_price">{{ el.quantity }}</h3>
+                        </div>
+                    </li>
+
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

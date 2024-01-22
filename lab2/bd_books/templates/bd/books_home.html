@@ -1,0 +1,35 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1 class="title-page">Список книг</h1>
+        <ul class="books-list">
+        {% for el in books %}
+            <li class="alert-warning">
+                <div class="book_header">
+                    {% if el.image %}
+	                    <div><img class="img-article-left thumb" src="{{el.image.url}}"></div>
+                    {% endif %}
+                    <h3 class="book_title">{{ el.title }}</h3>
+                    <h5 class="book_author">{{ el.author }}</h5>
+                    <div class="book_price"><h3 class="book_price_title">{{ el.price }}</h3></div>
+                    <form id="form-buying-book" class="form-inline">
+                        <div class="form-group">
+                            <input type="number" class="form-control", id="number", name="number", value="1">
+                        </div>
+                    </form>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success btn-buy" id="button-buy">Добавить в корзину</button>
+                    </div>
+                </div>
+
+                <div class="link-book-show thumb"><a href="{% url 'book_page' el.pk %}">Смотреть подробнее</a> </div>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

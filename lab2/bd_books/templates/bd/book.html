@@ -1,0 +1,17 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+    <main>
+        <div class="features">
+            <h1>{{ book.title }}</h1>
+            {% if book.image %}
+                <div><img class="img-article-book" src="{{ book.image.url }}" alt=""></div>
+            {% endif %}
+            {{ book.description|linebreaks }}
+        </div>
+    </main>
+{% endblock %}
